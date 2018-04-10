@@ -17,7 +17,6 @@ public class HelloWorld {
 	}
 
 	public HelloWorld(String hello) {
-		super();
 		this.hello = hello;
 	}
 	
