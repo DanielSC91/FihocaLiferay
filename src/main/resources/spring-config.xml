@@ -52,4 +52,53 @@
 		<constructor-arg index="0" value="1" type="int"/>
 		<constructor-arg index="1" value="Calle Can Bruixa" type="java.lang.String"/>
 	</bean>
+	
+	<bean id="student2" class="com.privalia.entity.listas.Student">
+		<property name="idStudent" value="1"></property>
+		<property name="name" value="Dani"></property>
+		<property name="surname" value="Lists"></property>
+		<property name="age" value="27"></property>
+		<property name="teachers">
+			<list>
+				<bean class="com.privalia.entity.listas.Teacher">
+					<property name="idTeacher" value="1"></property>
+					<property name="name" value="Pepín"></property>
+				</bean>
+				<bean class="com.privalia.entity.listas.Teacher">
+					<property name="idTeacher" value="2"></property>
+					<property name="name" value="Manolín"></property>
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+<!--	
+	<bean id="student2" class="com.privalia.entity.listas.Student">
+		<property name="idStudent" value="1"></property>
+		<property name="name" value="Dani"></property>
+		<property name="surname" value="Lists"></property>
+		<property name="teachers">
+			<ref bean="teachers"/>
+		</property>
+	</bean>
+	
+	<bean id="teacher1" class="com.privalia.entity.listas.Teacher">
+		<property name="idTeacher" value="1"></property>
+		<property name="name" value="Pepín"></property>
+	</bean>
+	
+	<bean id="teacher2" class="com.privalia.entity.listas.Teacher">
+		<property name="idTeacher" value="2"></property>
+		<property name="name" value="Ridruejo"></property>
+	</bean>
+	
+	<bean id="teachers" class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<ref bean="teacher1"/>
+				<ref bean="teacher2"/>
+			</list>
+		</constructor-arg>
+	</bean>
+-->
 </beans>
