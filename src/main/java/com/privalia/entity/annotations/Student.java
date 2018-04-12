@@ -1,77 +1,35 @@
 package com.privalia.entity.annotations;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.stereotype.Component;
 
-import com.privalia.entity.Address;
+import com.privalia.entity.annotations.Address;
 
 @Component(value = "student")
+@PropertySource(value="classpath:config.properties")
 public class Student {
 
+	// El @Value lleva incorporado el @Autowired
+	@Value("${student.idstudent}")
 	private int idStudent;
+
+	@Value("${student.name}")
 	private String name;
+
+	@Value("${student.surname}")
 	private String surname;
+
+	@Value("${student.age}")
 	private int age;
+	
+	@Autowired
+	@Qualifier("address")
 	private Address address;
-	/**
-	 * @return the idStudent
-	 */
-	public int getIdStudent() {
-		return idStudent;
-	}
-	/**
-	 * @param idStudent the idStudent to set
-	 */
-	public void setIdStudent(int idStudent) {
-		this.idStudent = idStudent;
-	}
-	/**
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-	/**
-	 * @param name the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-	/**
-	 * @return the surname
-	 */
-	public String getSurname() {
-		return surname;
-	}
-	/**
-	 * @param surname the surname to set
-	 */
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
-	/**
-	 * @return the age
-	 */
-	public int getAge() {
-		return age;
-	}
-	/**
-	 * @param age the age to set
-	 */
-	public void setAge(int age) {
-		this.age = age;
-	}
-	/**
-	 * @return the address
-	 */
-	public Address getAddress() {
-		return address;
-	}
-	/**
-	 * @param address the address to set
-	 */
-	public void setAddress(Address address) {
-		this.address = address;
-	}
+	
 	
 	public Student() {
 		
@@ -86,4 +44,50 @@ public class Student {
 		this.address = address;
 	}
 	
+	public int getIdStudent() {
+		return idStudent;
+	}
+
+	public void setIdStudent(int idStudent) {
+		this.idStudent = idStudent;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getSurname() {
+		return surname;
+	}
+
+	public void setSurname(String surname) {
+		this.surname = surname;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	/*
+	// to resolve ${} in @Value
+	public static PropertySourcesPlaceholderConfigurer propertyConfigInDev() {
+		return new PropertySourcesPlaceholderConfigurer();
+	}
+	*/
 }
