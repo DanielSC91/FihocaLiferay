@@ -3,25 +3,25 @@ package com.privalia.entity.listas.annotations;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+//import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Qualifier;
+//import org.springframework.beans.factory.annotation.Value;
+//import org.springframework.stereotype.Component;
 
 
-@Component(value = "student")
+//@Component(value = "student")
 public class Student {
 
-	@Value("23")
+//	@Value("23")
 	private int idStudent;
-	@Value("Pepin")
+//	@Value("Pepin")
 	private String name;
-	@Value("Ridruejo")
+//	@Value("Ridruejo")
 	private String surname;
-	@Value("99")
+//	@Value("99")
 	private int age;
-	@Autowired
-	@Qualifier(value = "teachers")
+//	@Autowired
+//	@Qualifier(value = "teachers")
 	private List<Teacher> teachers;
 	
 	public Student() {

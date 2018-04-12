@@ -9,22 +9,23 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MyConfig {
 	
-//	@Bean
-//	public Student student() {
-//		
-//		
-//		
-//		return new Student();
-//	}
+	@Bean(value = "student")
+	public Student student() {
+		Student student = new Student();
+		student.setName("PEPITO");
+		student.setSurname("APELLIDO");
+		student.setAge(98);
+		student.setIdStudent(12);
+		student.setTeachers(teachers());
+		return student;
+	}
 	
-	@Bean(value = "teachers")
+	//@Bean(value = "teachers")
 	public List<Teacher> teachers() {
-		
 		List<Teacher> teachers = new ArrayList<Teacher>();
-		
 		teachers.add(new Teacher(1, "Pepe"));
 		teachers.add(new Teacher(2, "Manolo"));
-		
 		return teachers;
+		
 	}
 }
