@@ -101,4 +101,23 @@
 		</constructor-arg>
 	</bean>
 -->
+	<bean id="compra" class="com.privalia.aspectos.Comprar"></bean>
+	
+	<bean id="validarCompra" class="com.privalia.aspectos.ValidarMaterial"></bean>
+	
+	<aop:config>
+		<aop:aspect ref="validarCompra">
+			<aop:pointcut expression="execution( * com.privalia.aspectos.Comprar.compra(..) )" id="compraPointCut"/>
+			
+			<!-- Antes de comprar comprobamos la cantidad -->
+			<aop:before pointcut-ref="compraPointCut" method="comprobarCantidad"/>
+			
+			<!-- Después, si todo va bien lo empaquetamos -->
+			<aop:after-returning pointcut-ref="compraPointCut" method="empaquetar"/>
+			
+			<!-- En caso de error, ponemos una reclamación -->
+			<aop:after-throwing pointcut-ref="compraPointCut" method="ponerReclamacion"/>			
+		</aop:aspect>
+	</aop:config>
+
 </beans>
